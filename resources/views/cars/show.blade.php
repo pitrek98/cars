@@ -10,8 +10,13 @@
 
 <body>
     <div class="container">
-        <h1>{{ $car[0] }} {{ $car[1] }}</h1>
-        <p>Szczegóły: {{ $car[2] }}</p>
+        <h1>{{ $car->vin }}</h1>
+        <h3>Szczegóły:</h3>
+        <ul>
+            <li>Kolor: {{ $car->color }}</li>
+            <li>Cena: {{ $car->price }}</li>
+            <li>Opis: {{ $car->description }}</li>
+        </ul>
     </div>
 </body>
 

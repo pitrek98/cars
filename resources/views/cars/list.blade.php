@@ -15,22 +15,28 @@
             <table>
                 <thead>
                     <tr>
-                        <th>L.p.</th>
-                        <th>Marka</th>
-                        <th>Model</th>
-                        <th>Cecha</th>
+                        <th>Id</th>
+                        <th>Vin</th>
+                        <th>Kolor</th>
+                        <th>Cena</th>
                         <th>Szczegóły</th>
+                        <th>Usuń</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($cars as $car)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $car[0] }} </td>
-                            <td>{{ $car[1] }} </td>
-                            <td>{{ $car[2] }} </td>
+                            <td>{{ $car->id }}</td>
+                            <td>{{ $car->vin }} </td>
+                            <td>{{ $car->color }} </td>
+                            <td>{{ $car->price }} </td>
                             <td>
-                                <a href="/cars/show/{{ $loop->iteration }}">NIE UWIERZYSZ</a>
+                                <a href="{{ route('cars.show', ['id' => $car->id]) }}">Szczegóły</a>
+                            </td>
+                            <td>
+                                <form action="{{ route('cars.destroy', ['id' => $car->id]) }}" method="get">
+                                    <button type="submit">Usuń</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

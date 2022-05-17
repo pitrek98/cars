@@ -17,11 +17,11 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string("vin")->unique();
-            $table->string("model")->nullable();
+            $table->string("registration")->unique();
+            $table->text("description")->nullable();
             $table->string("color")->nullable();
             $table->integer("price")->nullable()->unsigned();
             $table->date("registration_date")->nullable();
-            $table->text("description")->nullable();
             $table->timestamps();
         });
     }
